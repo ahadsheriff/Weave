@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   	end
   end
 
-   root "todo_lists#index"
+  authenticated :user do
+    root 'todo_lists#index', as: "authenticated_root"
+  end
+
+  root "welcome#index"
 
 end
