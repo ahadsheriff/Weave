@@ -14,7 +14,7 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/new
   def new
-    @todo_list = TodoList.new
+    @todo_list = current_user.todo_lists.build
   end
 
   # GET /todo_lists/1/edit
@@ -24,7 +24,7 @@ class TodoListsController < ApplicationController
   # POST /todo_lists
   # POST /todo_lists.json
   def create
-    @todo_list = TodoList.new(todo_list_params)
+    @todo_list = current_user.todo_lists.build(todo_list_params)
 
     respond_to do |format|
       if @todo_list.save
@@ -56,7 +56,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Todo list was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Todo list was successfully deleted.' }
       format.json { head :no_content }
     end
   end
