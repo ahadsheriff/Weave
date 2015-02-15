@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   	end
   end
 
-  # root "todo_lists#index"
-
-  	root "welcome#index"
+   root "todo_lists#index"
 
 end
