@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Todo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
+    <title>Weave | Work Together
+    |</title><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %><%= javascript_include_tag 'application', 'data-turbolinks-track' => true %><%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel=
+    'stylesheet' type='text/css'>
+    <link href=
+    "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    rel="stylesheet">
+
 </head>
-<body>
 
-  <p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-	
-	<p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<div class="container">
-	<%= yield %>
+<div id="head">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 </div>
+
+<body>
+    
+    <p class="notice"><%= notice %></p>
+
+    <p class="alert"><%= alert %></p>
+
+    <div class="container">
+    
+        <%= yield %>
+    </div>
+
+    <p class="navbar-text"><% if user_signed_in? %> Logged in as
+    <strong><%= current_user.email %></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+    |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+    | <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %></p>
+
+    <script id="cid0020000085014387012" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 288px;height: 343px;">{"handle":"weaveapp","arch":"js","styles":{"a":"ff6600","b":100,"c":"000000","d":"000000","k":"ff6600","l":"ff6600","m":"ff6600","p":"14.04","q":"ff6600","r":100,"pos":"br","cv":1,"cvbg":"ff6600","cvfg":"000000","cvw":195,"cvh":30,"surl":0,"ticker":1}}</script>
 
 </body>
 </html>
